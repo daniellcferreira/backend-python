@@ -4,6 +4,7 @@ from django.urls import reverse
 from polls.models import Choice, Question
 
 
+# Funções baseadas em visualizações (views)
 def index(request):
     latest_question_list = Question.objects.order_by("-pub_date")[:5]
     context = {
@@ -12,16 +13,19 @@ def index(request):
     return render(request, "polls/index.html", context)
 
 
+# Detalhes e resultados das perguntas
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/detail.html", {"question": question})
 
 
+# Resultados das perguntas
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/results.html", {"question": question})
 
 
+# Votação em uma pergunta
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
