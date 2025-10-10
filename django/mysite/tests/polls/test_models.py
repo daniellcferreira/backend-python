@@ -3,6 +3,8 @@ from django.utils import timezone
 from polls.models import Question
 
 
+# Teste do modelo Question
+# Função para testar o método was_published_recently
 @pytest.mark.django_db
 def test_question_was_published_recently_success():
     # Given
@@ -11,7 +13,9 @@ def test_question_was_published_recently_success():
     active = True
 
     # When
-    question = Question.objects.create(question_text=question_text, pub_date=pub_date, active=active)
+    question = Question.objects.create(
+        question_text=question_text, pub_date=pub_date, active=active
+    )
 
     # Then
     assert question.was_published_recently() is True

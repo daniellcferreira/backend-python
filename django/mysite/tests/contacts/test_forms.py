@@ -1,6 +1,7 @@
 from contacts.forms import NameForm
 
 
+# Teste do form de nome
 def test_name_form_success():
     # Given
     data = {"your_name": "Jonh"}
@@ -13,6 +14,7 @@ def test_name_form_success():
     assert result is True
 
 
+# Teste do form de nome com mais de 100 caracteres
 def test_name_form_your_name_max_length():
     # Given
     data = {"your_name": "Jonh" * 50}
@@ -24,10 +26,13 @@ def test_name_form_your_name_max_length():
     # Then
     assert result is False
     assert form.errors == {
-        "your_name": ["Certifique-se de que o valor tenha no máximo 100 caracteres (ele possui 200)."]
+        "your_name": [
+            "Certifique-se de que o valor tenha no máximo 100 caracteres (ele possui 200)."
+        ]
     }
 
 
+# Teste do form de nome sem dados
 def test_name_form_fail():
     # Given
     data = {}

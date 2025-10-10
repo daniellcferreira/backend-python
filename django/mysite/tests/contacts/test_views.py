@@ -5,6 +5,7 @@ from django.contrib.auth.models import Permission
 from django.urls import reverse
 
 
+# Teste das views (visualizações) de contacts app
 def test_contacts_thanks(client):
     # Given
     name = "Jhon"
@@ -17,6 +18,7 @@ def test_contacts_thanks(client):
     assert f"Obrigado {name}!" in response.content.decode()
 
 
+# Teste da view de criação de contato
 def test_contact_create_with_unauthenticated_user(client):
     # Given
     url = f'{reverse("accounts:login")}?next={reverse("contacts:create")}'
@@ -29,6 +31,7 @@ def test_contact_create_with_unauthenticated_user(client):
     assert response.url == url
 
 
+# Teste da view de criação de contato com usuário autenticado 
 @pytest.mark.django_db
 def test_contact_create_success(client, django_user_model):
     # Given
@@ -38,7 +41,9 @@ def test_contact_create_success(client, django_user_model):
         "sender": "sender@testemail.com",
         "cc_myself": True,
     }
-    user = django_user_model.objects.create_user(username="john", email="john@testmail.com", password="123mudar")
+    user = django_user_model.objects.create_user(
+        username="john", email="john@testmail.com", password="123mudar"
+    )
     permission = Permission.objects.get(codename="add_contact")
     user.user_permissions.add(permission)
 
