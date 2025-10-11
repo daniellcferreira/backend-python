@@ -1,0 +1,53 @@
+# ─── Python ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+*.manifest
+*.spec
+build/
+dist/
+pip-wheel-metadata/
+.eggs/
+
+# ─── Virtual Environment ────────────────────────────────
+venv/
+.env/
+env/
+.venv/
+
+# ─── IDEs e Editores ────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ─── Logs e Cache ───────────────────────────────────────
+*.log
+*.pot
+*.pyc
+*.cache
+*.coverage
+htmlcov/
+coverage.xml
+.pytest_cache/
+
+# ─── Configurações Temporárias ─────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ─── Arquivos do Uvicorn ou Gunicorn ───────────────────
+*.pid
+
+# ─── Arquivos de Banco de Dados (se usar SQLite) ───────
+*.db
+*.sqlite3
+
+# ─── Arquivos de Deploy ou Containers ───────────────────
+*.env.local
+docker-compose.override.yml
