@@ -8,8 +8,6 @@
 ![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?style=flat-square&logo=docker)
 ![Heroku](https://img.shields.io/badge/Heroku-Cloud%20Platform-430098?style=flat-square&logo=heroku)
 
-
-
 Este README explora os dois principais frameworks para desenvolvimento web em Python: Flask e Django. Ambos possuem características únicas que atendem a diferentes necessidades e estilos de desenvolvimento.
 
 ---
