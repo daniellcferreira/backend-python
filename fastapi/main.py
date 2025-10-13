@@ -1,7 +1,20 @@
-from fastapi import FastAPI  # Importa o framework FastAPI
+from fastapi import FastAPI
+from datetime import datetime, UTC
 
-app = FastAPI()  # Cria uma instância da aplicação
+app = FastAPI()
 
-@app.get("/")  # Define uma rota GET no endpoint raiz "/"
-def read_root():
-  return {"message": "Hello World"}  # Retorna uma resposta JSON
+
+@app.get("/posts/{framework}")
+def read_posts(framework: str):
+    return {
+        "posts": [
+            {
+                "title": f"Criando uma aplicação com {framework}",
+                "date": datetime.now(UTC),
+            },
+            {
+                "title": f"Internacionalizando uma app {framework}",
+                "date": datetime.now(UTC),
+            },
+        ]
+    }
