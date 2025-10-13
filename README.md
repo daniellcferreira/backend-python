@@ -2,12 +2,11 @@
 
 ![Python](https://img.shields.io/badge/Python-Backend%20Development-3776AB?style=flat-square&logo=python)
 ![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000?style=flat-square&logo=flask)
+![FastApi](https://img.shields.io/badge/FastApi-Web%20Framework-000000?style=flat-square&logo=fastapi)
 ![Django](https://img.shields.io/badge/Django-Web%20Framework-092E20?style=flat-square&logo=django)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?style=flat-square&logo=postgresql)
 ![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?style=flat-square&logo=docker)
 ![Heroku](https://img.shields.io/badge/Heroku-Cloud%20Platform-430098?style=flat-square&logo=heroku)
-
-
 
 Este README explora os dois principais frameworks para desenvolvimento web em Python: Flask e Django. Ambos possuem características únicas que atendem a diferentes necessidades e estilos de desenvolvimento.
 
