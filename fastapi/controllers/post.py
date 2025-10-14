@@ -36,6 +36,7 @@ async def read_post(id: int):
     return await service.read(id)
 
 
+
 @router.patch("/{id}", response_model=PostOut)
 async def update_post(id: int, post: PostUpdateIn):
     return await service.update(id=id, post=post)
