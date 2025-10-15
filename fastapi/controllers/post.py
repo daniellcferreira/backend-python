@@ -1,11 +1,12 @@
-from fastapi import status, APIRouter
+from fastapi import status, APIRouter, Depends
 from schemas.post import PostIn, PostUpdateIn
 from views.post import PostOut
 from models.post import posts
 from database import database
+from security import login_required
 from services.post import PostService
 
-router = APIRouter(prefix="/posts")
+router = APIRouter(prefix="/posts", dependencies=[Depends(login_required)])
 
 service = PostService()
 
@@ -34,7 +35,6 @@ async def create_post(post: PostIn):
 @router.get("/{id}", response_model=PostOut)
 async def read_post(id: int):
     return await service.read(id)
-
 
 
 @router.patch("/{id}", response_model=PostOut)
