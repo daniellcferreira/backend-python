@@ -1,10 +1,10 @@
 from fastapi import status, APIRouter, Depends
-from schemas.post import PostIn, PostUpdateIn
-from views.post import PostOut
-from models.post import posts
-from database import database
-from security import login_required
-from services.post import PostService
+from src.schemas.post import PostIn, PostUpdateIn
+from src.views.post import PostOut
+from src.models.post import posts
+from src.database import database
+from src.security import login_required
+from src.services.post import PostService
 
 router = APIRouter(prefix="/posts", dependencies=[Depends(login_required)])
 
@@ -22,14 +22,8 @@ async def read_posts(
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=PostOut)
 async def create_post(post: PostIn):
-    command = posts.insert().values(
-        title=post.title,
-        content=post.content,
-        published=post.published,
-        published_at=post.published_at,
-    )
-    last_id = await database.execute(command)
-    return {**post.model_dump(), "id": last_id}
+
+    return {**post.model_dump(), "id": await service.create(post)}
 
 
 @router.get("/{id}", response_model=PostOut)
@@ -39,6 +33,7 @@ async def read_post(id: int):
 
 @router.patch("/{id}", response_model=PostOut)
 async def update_post(id: int, post: PostUpdateIn):
+
     return await service.update(id=id, post=post)
 
 

@@ -1,8 +1,9 @@
-from database import database
+from src.database import database
 from databases.interfaces import Record
 from fastapi import HTTPException, status
-from models.post import posts
-from schemas.post import PostIn, PostUpdateIn
+from src.exceptions import NotFoundPostError
+from src.models.post import posts
+from src.schemas.post import PostIn, PostUpdateIn
 
 
 class PostService:
@@ -32,10 +33,7 @@ class PostService:
     async def update(self, id: int, post: PostUpdateIn) -> Record:
         exists = await self.count(id)
         if not exists:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Post with id {id} not found",
-            )
+            raise NotFoundPostError
 
         data = post.model_dump(exclude_unset=True)
         command = posts.update().where(posts.c.id == id).values(**data)
@@ -55,8 +53,5 @@ class PostService:
         query = posts.select().where(posts.c.id == id)
         post = await database.fetch_one(query)
         if not post:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Post with id {id} not found",
-            )
+            raise NotFoundPostError
         return post
