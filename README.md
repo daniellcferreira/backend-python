@@ -75,17 +75,3 @@ urlpatterns = [
     path('', views.home, name='home'),
 ]
 ```
-
----
-
-## Comparação Rápida
-
-| Aspecto               | Flask                        | Django                   |
-|-----------------------|------------------------------|--------------------------|
-| **Tamanho**           | Microframework               | Framework completo       |
-| **Flexibilidade**     | Altamente personalizável     | Estrutura predefinida    |
-| **Curva de aprendizado** | Menor                        | Moderada                 |
-| **Escalabilidade**    | Depende da arquitetura escolhida | Escalável por padrão    |
-| **Comunidade e Extensões** | Ativo, mas menor            | Maior e mais consolidada |
-
-
