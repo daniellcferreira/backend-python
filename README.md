@@ -1,4 +1,4 @@
-# Flask e Django
+# Flask , Django e FastApi
 
 ![Python](https://img.shields.io/badge/Python-Backend%20Development-3776AB?style=flat-square&logo=python)
 ![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000?style=flat-square&logo=flask)
